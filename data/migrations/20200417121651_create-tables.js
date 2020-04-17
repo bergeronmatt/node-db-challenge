@@ -3,7 +3,7 @@ exports.up = function(knex) {
   return(
     knex.schema
         .createTable('projects', tbl => {
-            tbl.increment();
+            tbl.increments();
             tbl.string('name', 128)
                 .notNullable()
                 .unique();
@@ -13,7 +13,7 @@ exports.up = function(knex) {
                 .defaultTo(false);
         })
         .createTable('resources', tbl => {
-            tbl.increment();
+            tbl.increments();
             tbl.string('name', 128)
             .notNullable()
             .unique();
@@ -27,12 +27,10 @@ exports.up = function(knex) {
                 .onDelete('CASCADE')
         })
         .createTable('tasks', tbl => {
-            tbl.increment();
-            tbl.integer('task_number')
-                .unsigned()
+            tbl.increments();
+            tbl.string('description', 225)
                 .notNullable()
-            tbl.text('tasks')
-                .notNullable()
+            tbl.string('notes', 225)
             tbl.integer('project_id')
                 .unsigned()
                 .notNullable()
@@ -41,12 +39,12 @@ exports.up = function(knex) {
                 .onUpdate('CASCADE')
                 .onDelete('CASCADE')
         })
-  )
+  );
 };
 
 exports.down = function(knex) {
   return(
-      knex.shema
+      knex.schema
         .dropTableIfExists('tasks')
         .dropTableIfExists('resources')
         .dropTableIfExists('projects')

@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/bergeronmatt/node-db-challenge#readme",
   "dependencies": {
+    "cleaner": "^2.0.0-alpha",
     "express": "^4.17.1",
     "knex": "^0.20.15",
+    "knex-cleaner": "^1.3.0",
     "sqlite3": "^4.1.1"
   }
 }
