@@ -62,6 +62,7 @@ function addResources (resource) {
         .then(ids => ({ id: ids[0] }));
 }
 
+
 module.exports = {
     getProjects,
     addProject,
@@ -70,5 +71,6 @@ module.exports = {
     addTask,
     findTask,
     getResources,
-    addResources
+    addResources,
+    
 }
